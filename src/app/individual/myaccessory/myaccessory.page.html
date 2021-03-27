@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+      <span class="title1">
+        订单信息
+      </span>
+  </div>
+</ion-header>
+<div class="divider1">
+
+</div>
+
+<ion-content>
+  <ion-refresher my-refresher (ionRefresh)="onRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <div *ngFor="let item of list">
+      <ion-item>
+        <ion-label>
+        <span class="t1">
+        订单号
+        </span>
+          <br>
+          <span class="t2">
+        </span>
+        </ion-label>
+        <ion-label slot="end" class="t3"><span>
+          {{item.orderId}}
+        </span></ion-label>
+      </ion-item>
+      <ion-item>
+      <ion-label>
+        <span class="t1">
+        归属经销商
+        </span>
+        <br>
+        <span class="t2">
+        </span>
+      </ion-label>
+      <ion-label slot="end" class="t3"><span>
+          {{item.affiDealer}}
+        </span></ion-label>
+    </ion-item>
+      <ion-item>
+        <ion-label>
+        <span class="t1">
+        总库存
+        </span>
+          <br>
+          <span class="t2">
+        </span>
+        </ion-label>
+        <ion-label slot="end" class="t3"><span>
+          {{item.sumUpInventory}}
+        </span></ion-label>
+      </ion-item>
+      <div class="divider1"></div>
+    </div>
+    <div *ngIf="list.length==0" class="nodatat1">
+      <br>
+      <img src="../../../assets/nodata.png" class="nodatat2">
+      <div>
+        <br>
+        <span>
+            {{nodata_t1}}
+          </span>
+      </div>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll my-infinite (ionInfinite)="onInfinite($event)" [disabled]="!hasMore">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+<!--<ion-content>-->
+<!--  <ion-list>-->
+
+<!--    <div *ngFor="let item of list">-->
+<!--      <ion-item>-->
+<!--        <ion-label>-->
+<!--        <span class="t1">-->
+<!--        配件名称-->
+<!--        </span>-->
+<!--          <br>-->
+<!--          <span class="t2">-->
+<!--        </span>-->
+<!--        </ion-label>-->
+<!--        <ion-label slot="end" class="t3"><span>-->
+<!--          {{item.name}}-->
+<!--        </span></ion-label>-->
+<!--      </ion-item>-->
+<!--      <ion-item>-->
+<!--        <ion-label>-->
+<!--        <span class="t1">-->
+<!--        配件数量-->
+<!--        </span>-->
+<!--          <br>-->
+<!--          <span class="t2">-->
+<!--        </span>-->
+<!--        </ion-label>-->
+<!--        <ion-label slot="end" class="t3"><span>-->
+<!--          {{item.surplusSum}}-->
+<!--        </span></ion-label>-->
+<!--      </ion-item>-->
+<!--      <div class="divider1"></div>-->
+<!--    </div>-->
+<!--  </ion-list>-->
+<!--</ion-content>-->

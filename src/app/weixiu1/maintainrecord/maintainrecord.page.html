@@ -1,0 +1,93 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="wrapper1">
+    <ion-grid>
+        <ion-row class="ion-align-items-center">
+            <ion-col>
+          <span class="title1">
+            维修详情
+          </span>
+            </ion-col>
+            <ion-col style="text-align: right">
+                <span class="header_t4">{{equipname}}</span>&nbsp;&nbsp;
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+
+<ion-content>
+    <div>
+        <div class="divider1"></div>
+        <ion-item>
+            <ion-label>
+        <span class="t1">
+        维修人员
+        </span>
+                <br>
+                <span class="t2">
+        </span>
+            </ion-label>
+            <ion-label slot="end" class="t3"><span>
+          {{worker1}}
+        </span></ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+        <span class="t1">
+        开始维修时间
+        </span>
+                <br>
+                <span class="t2">
+        </span>
+            </ion-label>
+            <ion-label slot="end" class="t3"><span>
+          {{date1}}
+        </span></ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+        <span class="t1">
+        结束修理时间
+        </span>
+                <br>
+                <span class="t2">
+        </span>
+            </ion-label>
+            <ion-label slot="end" class="t3"><span>
+          {{date2}}
+        </span></ion-label>
+        </ion-item>
+        <div class="divider1"></div>
+        <ion-item>
+            <ion-label>
+        <span class="t1">
+        故障原因
+        </span>
+                <br>
+                <span class="t2">
+        </span>
+            </ion-label>
+            <ion-label slot="end" class="t3"><span>
+          {{reason1}}
+        </span></ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+        <span class="t1">
+        使用配件
+        </span>
+                <br>
+                <span class="t2">
+        </span>
+            </ion-label>
+            <ion-label slot="end" class="t3"><span>
+          {{accessory1}}
+        </span></ion-label>
+        </ion-item>
+    </div>
+</ion-content>

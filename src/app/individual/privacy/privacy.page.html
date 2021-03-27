@@ -1,0 +1,67 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="close-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="wrapper1">
+    <div class="container1" (click)="toMyInfo()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <span class="text1" style="display: inline-block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 10rem">
+              {{userInfo.name}}
+            </span>
+<!--            <br>-->
+            <span class="text2">
+              <span *ngIf="userInfo.type=='0'">
+                经销商
+              </span>
+              <span *ngIf="userInfo.type=='1'">
+                维修人员
+              </span>
+              <span *ngIf="userInfo.type=='2'">
+                使用人员
+              </span>
+              <span *ngIf="userInfo.type=='3'">
+                厂商
+              </span>
+            </span>
+          </ion-col>
+          <ion-col style="text-align: right">
+            <img src="{{userInfo.avatar}}" class="icon4" *ngIf="userInfo.avatar!=''&&userInfo.avatar!=null&&userInfo.avatar!=undefined">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="divider1">
+
+  </div>
+  <div class="wrapper2">
+      <ion-grid>
+        <ion-row class="h_t1">
+          <ion-col align="center" *ngFor="let item of items1" (click)="click2(item)">
+            <ion-img style="display: inline-block" class="icon3" src="{{item.icon}}">
+            </ion-img>
+            <br>
+            {{item.label}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+  <div class="divider1">
+
+  </div>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items2" align="center" (click)="click1(item)">
+      <img src="{{item.icon}}" class="list_i1"><span class="list_t1">&nbsp;&nbsp;{{item.label}}</span>
+      <ion-note slot="end"><ion-icon name="chevron-forward-outline"></ion-icon></ion-note>
+    </ion-item>
+  </ion-list>
+<!--  <img src="../../assets/icon_mine.png">-->
+</ion-content>

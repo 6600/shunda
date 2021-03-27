@@ -1,0 +1,88 @@
+<!--
+ * @Author: 周凯
+ * @Date: 2020-06-09 16:18:08
+ * @LastEditTime: 2020-11-26 23:19:40
+-->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon
+        icon="chevron-back-outline"
+        color="medium"
+        class="backbt"
+        (click)="toBack()"
+      ></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="end" class="header_t1" (click)="toRecord()">
+      <span>维修记录&nbsp;</span>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <span class="title1"> 设备状态 </span>
+        </ion-col>
+        <ion-col style="text-align: right" *ngIf="equipmentStatus=='1'">
+          <span class="header_t2">异常</span>&nbsp;&nbsp;
+          <span class="header_t3">待维修</span>
+        </ion-col>
+        <ion-col style="text-align: right" *ngIf="equipmentStatus=='0'">
+          <span class="header_t4">正常</span>&nbsp;&nbsp;
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="divider1"></div>
+  <div>
+    <ion-item>
+      <ion-label class="item_t1"> 批次码 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{batchNumber}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> IMEI </ion-label>
+      <ion-note slot="end" class="item_t2"> {{serial_id}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 设备名称 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{equipment_name}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 设备位置 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{equipment_loc}} </ion-note>
+    </ion-item>
+  </div>
+  <div class="divider1"></div>
+
+  <div>
+    <ion-item>
+      <ion-label class="item_t1"> 生产厂家 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{manufacturer}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 生产时间 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{chuchangshijian}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 安全作业时间 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{workdate}} </ion-note>
+    </ion-item>
+  </div>
+</ion-content>
+<ion-footer
+  *ngIf="(type==1||type==2)&&userinfo.type=='1'"
+  style="background-color: white"
+>
+  <ion-button
+    expand="full"
+    (click)="towxzhong()"
+    *ngIf="equipmentStatus=='1' && type==1"
+    >去维修</ion-button
+  >
+  <ion-button expand="full" (click)="toZijian()" *ngIf="type==2"
+    >开始自检</ion-button
+  >
+</ion-footer>

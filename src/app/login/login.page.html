@@ -1,0 +1,112 @@
+<!--<ion-header>-->
+<!--  <ion-toolbar>-->
+<!--    <ion-title>login</ion-title>-->
+<!--  </ion-toolbar>-->
+<!--</ion-header>-->
+
+<ion-content style="background: #ffffff; background: black; z-index: -5">
+  <div class="image_294X1" style="z-index: -4">
+    <div class="container1 horizontal_auto"></div>
+
+    <div class="container2 horizontal_auto"></div>
+
+    <div
+      class="container3"
+      style="
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 9999;
+      "
+    >
+      <ion-avatar class="icon4" style="z-index: 9999">
+        <img src="{{photo}}" style="z-index: 9999" />
+      </ion-avatar>
+
+      <br />
+      <ion-item
+        lines="none"
+        style="
+          display: flex;
+          align-items: center;
+          z-index: 1;
+          background: rgba(0, 0, 0, 0);
+        "
+      >
+        <ion-label
+          ><img
+            src="../../assets/icon_yonghu.png"
+            style="
+              width: 1.25rem;
+              height: 1.25rem;
+              background: rgba(0, 0, 0, 0);
+            "
+          />&nbsp;</ion-label
+        >
+        <ion-input
+          autocomplete="off"
+          placeholder="请输入你的账户"
+          [(ngModel)]="user"
+          maxlength="12"
+          style="height: 1.25rem; background: rgba(0, 0, 0, 0)"
+          >&nbsp;</ion-input
+        >
+      </ion-item>
+      <br />
+
+      <ion-item
+        lines="none"
+        style="
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          background: rgba(0, 0, 0, 0);
+        "
+      >
+        <ion-label
+          ><img
+            src="../../assets/icon_mima.png"
+            style="
+              width: 1.25rem;
+              height: 1.25rem;
+              background: rgba(0, 0, 0, 0);
+            "
+          />&nbsp;</ion-label
+        >
+        <ion-input
+          autocomplete="off"
+          style="height: 1.25rem; background: rgba(0, 0, 0, 0)"
+          placeholder="请输入你的密码"
+          [(ngModel)]="passwd"
+          type="password"
+          maxlength="12"
+          >&nbsp;</ion-input
+        >
+      </ion-item>
+    </div>
+
+    <button class="bt1 horizontal_auto" (click)="login()" style="outline: none">
+      登录
+    </button>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <div style="text-align: center">
+    <img src="../../assets/icon/favicon1.png" style="width: 70%" />
+  </div>
+</ion-footer>
+<!--      <div style="width: 280px;height: 300px;border-radius: 16px;background: #ffffff;padding-top: 45px;">-->
+<!--        <ion-item>-->
+<!--          <ion-label><img src="../../assets/icon_yonghu.png"></ion-label>-->
+<!--          <ion-input placeholder="请输入你的账户"></ion-input>-->
+<!--        </ion-item>-->
+<!--        <div style="height: 27px;">-->
+
+<!--        </div>-->
+<!--        <ion-item>-->
+<!--          <ion-label><img src="../../assets/icon_mima.png"></ion-label>-->
+<!--          <ion-input placeholder="请输入你的密码"></ion-input>-->
+<!--        </ion-item>-->
+<!--        <ion-button expand="block" color="primary" (click)="login()">登录</ion-button>-->
+<!--      </div>-->

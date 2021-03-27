@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="wrapper1">
+      <span class="title1">
+        厂家信息
+      </span>
+</div>
+<div class="divider1">
+
+</div>
+<ion-content>
+    <div>
+        <ion-item>
+            <ion-label class="item_t1">
+                厂商名称
+            </ion-label>
+            <ion-note slot="end" class="item_t2">
+                {{tradeName}}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-label class="item_t1">
+                厂商地址
+            </ion-label>
+            <ion-note slot="end" class="item_t2">
+                {{teadeAddress}}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-label class="item_t1">
+                厂商微信
+            </ion-label>
+            <ion-note slot="end" class="item_t2">
+                {{tradeWechat}}
+            </ion-note>
+        </ion-item>
+        <ion-item>
+            <ion-label class="item_t1">
+                厂商电话
+            </ion-label>
+            <ion-note slot="end" class="item_t2">
+                {{tradeMobile}}
+            </ion-note>
+        </ion-item>
+    </div>
+</ion-content>

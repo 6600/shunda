@@ -1,0 +1,135 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one components. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/*
+user
+ */
+html{
+  font-size: 17.644px;
+}
+
+ion-toolbar{
+  //background: white;
+  //--border-width:0;
+}
+
+ion-item{
+  --padding-start:0;
+  --inner-padding-start:1rem;
+}
+//ion-content{
+//  background-color: rgba(242, 242, 248, 1);
+//}
+
+.wrapper1{
+  padding: 1rem 0 1rem 1rem;
+  background-color: rgba(255, 255, 255, 1)
+}
+
+.title1{
+  width: 5.99rem;
+  height: 2.25rem;
+  color: rgba(56, 56, 56, 1);
+  font-size: 1.47rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.divider1{
+  width: 100%;
+  height: 0.62rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(242, 242, 248, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: center;
+}
+
+.divider2{
+  width: 100%;
+  height: 0.32rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(242, 242, 248, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: center;
+}
+
+.divider3{
+  width: 100%;
+  height: 0.1rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(222, 242, 248, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: center;
+}
+//ion-app.cameraView, ion-app.cameraView ion-content, ion-app.cameraView .nav-decor {
+//  background: transparent none !important;
+//  .tabbar.show-tabbar {
+//    opacity: 0;
+//  }
+//}
+
+ion-content{  // 一定要将ion-content设置为背景透明，否则看不到摄像头画面
+  //--background:    rgba(242, 242, 248, 1) !important;
+  //background:    rgba(242, 242, 248, 1) !important;
+  //--color: white;
+}
+
+.nodatat1{
+  color: rgba(128, 128, 128, 1);
+  font-size: 13px;
+  line-height: 150%;
+  text-align: center;
+}
+
+.nodatat2{
+  width: 13.02rem;
+  height: 9.39rem;
+}
+
+:root{
+  --ion-color-primary: #49a0de;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+}
+
+.backbt{
+  height: 2rem;width: 2rem;
+}
+input:-webkit-autofill { background-color: transparent; }
+input {
+  outline: none;
+}
+input:focus{
+  outline: none;
+}

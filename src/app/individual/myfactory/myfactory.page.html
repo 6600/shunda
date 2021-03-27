@@ -1,0 +1,125 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <span class="title1">
+            我的设备商
+          </span>
+        </ion-col>
+        <ion-col style="margin-left: auto;text-align: right;padding-right: 0.5rem;" align="center">
+          <span *ngFor="let item of items1" class="select_t1" >
+            {{item.label}}
+          </span>
+<!--          <ion-select interface="popover" style="min-width: 4rem;margin-right: 1rem;-->
+<!--          margin-left: auto;text-align: right;" class="select_t1" [(ngModel)]="items1_sel" (ionChange)="change()">-->
+<!--            <ion-select-option *ngFor="let item of items1" value="{{item.value}}">{{item.label}}&nbsp;</ion-select-option>-->
+<!--          </ion-select>-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-refresher my-refresher (ionRefresh)="onRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <div *ngFor="let item of list">
+      <div class="divider1"></div>
+      <ion-item>
+        <ion-label>
+        <span class="t1" *ngIf="items1_sel=='0'">
+        经销商
+        </span>
+          <span class="t1" *ngIf="items1_sel=='2'">
+        交管部门
+        </span>
+          <br>
+          <span class="t2">
+        </span>
+        </ion-label>
+        <ion-label slot="end" class="t3"><span>
+          {{item.name}}
+        </span></ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+        <span class="t1">
+        设备数量
+        </span>
+          <br>
+          <span class="t2">
+        </span>
+        </ion-label>
+        <ion-label slot="end" class="t3"><span>
+          {{item.count}}
+        </span></ion-label>
+      </ion-item>
+    </div>
+    <div *ngIf="list.length==0" class="nodatat1">
+      <br>
+      <img src="../../../assets/nodata.png" class="nodatat2">
+      <div>
+        <br>
+        <span>
+            {{nodata_t1}}
+          </span>
+      </div>
+    </div>
+  </ion-list>
+  <ion-infinite-scroll my-infinite (ionInfinite)="onInfinite($event)" [disabled]="!hasMore">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+
+<!--<ion-content>-->
+<!--  <ion-list>-->
+
+<!--    <div *ngFor="let item of list">-->
+<!--      <ion-item>-->
+<!--        <ion-label>-->
+<!--        <span class="t1" *ngIf="item.isType==0">-->
+<!--        经销商-->
+<!--        </span>-->
+<!--        <span class="t1" *ngIf="item.isType==2">-->
+<!--        交管部门-->
+<!--        </span>-->
+<!--          <br>-->
+<!--          <span class="t2">-->
+<!--        </span>-->
+<!--        </ion-label>-->
+<!--        <ion-label slot="end" class="t3"><span>-->
+<!--          {{item.memberName}}-->
+<!--        </span></ion-label>-->
+<!--      </ion-item>-->
+<!--      <ion-item>-->
+<!--        <ion-label>-->
+<!--        <span class="t1">-->
+<!--        设备数量-->
+<!--        </span>-->
+<!--          <br>-->
+<!--          <span class="t2">-->
+<!--        </span>-->
+<!--        </ion-label>-->
+<!--        <ion-label slot="end" class="t3"><span>-->
+<!--          {{item.sum}}-->
+<!--        </span></ion-label>-->
+<!--      </ion-item>-->
+<!--      <div class="divider1"></div>-->
+<!--    </div>-->
+<!--  </ion-list>-->
+<!--</ion-content>-->

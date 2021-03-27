@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span class="title1">
+            我的设备
+          </span>
+        </ion-col>
+        <ion-col>
+          <ion-select interface="popover" style="min-width: 4rem;margin-right: 1rem;
+          margin-left: auto;text-align: right;" class="select_t1" [(ngModel)]="items1_sel" (ionChange)="search()">
+            <ion-select-option *ngFor="let item of items1" value="{{item.value}}">{{item.label}} &nbsp;{{item.account}}项&nbsp;</ion-select-option>
+<!--            <ion-select-option *ngFor="let item of items1" value="{{item.value}}">{{item.label}} &nbsp;{{item.account}}项&nbsp;</ion-select-option>-->
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <div style="background-color: white">
+    <ion-searchbar mode='ios' showCancelButton="always" cancelButtonText="搜索" [(ngModel)]="serach_input"
+                   style="--cancel-button-background:blue;" placeholder="请输入设备名或者唯一标识码" (ionCancel)="search()"></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div (click)="toStatus(item)" *ngFor="let item of list">
+      <ion-item *ngIf="item.equipment_status==items1_sel || items1_sel=='2'">
+        <ion-avatar style="width: 2rem;height: 2rem;">
+          <img src="../../assets/icon_langan1.png">
+        </ion-avatar>
+        &nbsp;&nbsp;
+        <ion-label>
+          <span class="item_t1">{{item.equipment_name}}&nbsp;</span>
+          <br>
+          <span class="item_t2">{{item.address_name}}&nbsp;</span>
+        </ion-label>
+        <ion-note slot="end">
+          <img src="../../assets/icon_dinwei hongse.png" class="item_i1" *ngIf="item.equipment_status=='1'">
+          <img src="../../assets/icon_dinwei.png" class="item_i1" *ngIf="item.equipment_status=='0'">
+          <span class="item_t3" *ngIf="item.equipment_status=='1'">
+            异常
+          </span>
+          <span class="item_t4" *ngIf="item.equipment_status=='0'">
+            正常
+          </span>
+        </ion-note>
+      </ion-item>
+    </div>
+    <div *ngIf="list.length==0" class="nodatat1">
+      <br>
+      <img src="../../../assets/nodata.png" class="nodatat2">
+      <div>
+        <br>
+        <span>
+            {{'暂无更多数'}}
+          </span>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

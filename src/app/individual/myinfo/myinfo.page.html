@@ -1,0 +1,71 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+      <span class="title1">
+        个人信息
+      </span>
+  </div>
+</ion-header>
+<ion-content>
+  <div class="divider1"></div>
+  <div>
+    <ion-item>
+      <ion-label class="span2">头像</ion-label>
+      <ion-note slot="end"><ion-row class="ion-align-items-center" style="padding: 1rem 0 1rem 0">
+        <label for="head">
+          <img src="{{userInfo.avatar}}" class="icon4" *ngIf="userInfo.avatar!=''&&userInfo.avatar!=null&&userInfo.avatar!=undefined">
+          <img src="../../assets/wodeshebei.png" class="icon4" *ngIf="userInfo.avatar==''||userInfo.avatar==null||userInfo.avatar==undefined">
+        </label>
+        <ion-icon name="chevron-forward-outline"></ion-icon></ion-row></ion-note>
+    </ion-item>
+    <ion-item (click)="presentAlertCheckbox()">
+      <ion-label class="span2">昵称</ion-label>
+      <ion-note slot="end" class="span3" >{{userInfo.name}}</ion-note>
+    </ion-item>
+    <ion-item (click)="presentAlertCheckbox1()">
+      <ion-label class="span2">手机号</ion-label>
+      <ion-note slot="end" class="span3">{{userInfo.phone}}</ion-note>
+    </ion-item>
+  </div>
+
+  <div class="divider1"></div>
+  <ion-list>
+    <ion-item>
+      <ion-label class="span2">
+        人员身份
+      </ion-label>
+      <ion-note slot="end" class="span3">              <span *ngIf="userInfo.type=='0'">
+                经销商
+              </span>
+        <span *ngIf="userInfo.type=='1'">
+                维修人员
+              </span>
+        <span *ngIf="userInfo.type=='2'">
+                使用人员
+              </span>
+        <span *ngIf="userInfo.type=='3'">
+                厂商
+              </span></ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="span2">软件版本</ion-label>
+      <ion-note slot="end" class="span3">{{userInfo.ver}}</ion-note>
+    </ion-item>
+
+    <div class="divider1">
+    </div>
+    <ion-item (click)="toLogout()">
+      <ion-label class="span2">登出</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <form style="display: none" id="form1"  method="post"  enctype="multipart/form-data">
+    <input class="addPicInput" type="file" ref="uploadFile" accept="image/*" multiple id="head" style="display: none" (change)="onChange($event)">
+  </form>
+
+</ion-content>

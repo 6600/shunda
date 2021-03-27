@@ -1,0 +1,87 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+      <span class="title1">
+        添加新设备
+      </span>
+  </div>
+</ion-header>
+<div class="divider1">
+
+</div>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label class="t1">
+        批次码
+      </ion-label>
+      <ion-label slot="end" class="t3"><span  class="t4">{{batchNumber}}&nbsp;</span></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="t1">
+        IMEI
+      </ion-label>
+      <ion-label slot="end" class="t3"><span class="t4">{{id}}&nbsp;</span></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="t1">
+        设备名称
+      </ion-label>
+      <ion-label slot="end" class="t3"><span  class="t4">{{devName}}&nbsp;</span></ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="divider1">
+
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label class="t1">
+        生产厂家
+      </ion-label>
+      <ion-label slot="end" class="t3"><span  class="t4">{{manufacturer}}&nbsp;</span></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="t1">
+        生产时间
+      </ion-label>
+      <ion-label slot="end" class="t3"><span  class="t4">{{deliveryTime}}&nbsp;</span></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="t1">
+        安全作业时间
+      </ion-label>
+      <ion-label slot="end" class="t3"><span  class="t4">{{workdate}}&nbsp;</span></ion-label>
+<!--      <ion-datetime slot="end" class="t5" placeholder="安全作业时间" displayFormat="YYYY-MM-DD" min="1981" max="2290" [(ngModel)]="workdate"-->
+<!--      style="padding-right: 0.2rem;">-->
+<!--      </ion-datetime>-->
+<!--      <ion-label slot="end" class="t3"><span>123&nbsp;</span></ion-label>-->
+    </ion-item>
+  </ion-list>
+
+  <div class="divider1">
+
+  </div>
+
+    <ion-item>
+      <ion-label class="t1">
+        安装位置
+      </ion-label>
+
+      <ion-label slot="end" class="t3" (click)="toLocate()">
+        <span *ngIf="location!=''" class="t4">{{this.location}}</span>
+        <span *ngIf="location==''" class="t2">点击定位</span>
+        <span>&nbsp;</span></ion-label>
+    </ion-item>
+
+</ion-content>
+
+<ion-footer *ngIf="userinfo.type=='1'" style="background-color: white">
+    <ion-button expand="full" (click)="toNext()" >确认添加</ion-button>
+</ion-footer>

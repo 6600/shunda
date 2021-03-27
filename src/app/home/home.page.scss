@@ -1,0 +1,437 @@
+.icon1 {
+  width: 1.98rem;
+  height: 1.98rem;
+}
+
+.xiaoxi {
+  width: 100%;
+  height: 2.5rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  padding-left: 0.9225rem;
+  padding-right: 0.9225rem;
+}
+
+.laba {
+  width: 1.12rem;
+  height: 1.12rem;
+}
+
+.xiaoxi1 {
+  height: 2rem;
+  flex: 1;
+  text-align: left;
+  padding-left: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.arrow {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.5rem;
+  color: rgba(83, 105, 120, 1);
+}
+
+.map {
+  width: 100%;
+  height: 40.44rem;
+}
+
+.fab_container {
+  width: 2.5rem;
+  height: 5rem;
+  //padding: 0.5rem 1rem 0.5rem 1rem;
+  right: 0.5rem;
+  top: 6.5rem;
+  position: absolute;
+  z-index: 123123;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fab_container_icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.box1 {
+  margin-top: -0.2rem;
+  width: 100%;
+  height: 5rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border-top-left-radius: 0.66rem;
+  border-top-right-radius: 0.66rem;
+  font-size: 0.88rem;
+  line-height: 150%;
+  //border: rgba(229, 229, 229, 1) solid;
+  border-color: transparent;
+  //text-align: center;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.box1_t1 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.9rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.box1_t2 {
+  color: rgba(73, 160, 222, 1);
+  font-size: 0.56rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.box1_t3 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.box1_t4 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+
+.box2 {
+  width: 100%;
+  height: 3.25rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  border-top: rgba(229, 229, 229, 1) solid 1px;
+  border-bottom: rgba(229, 229, 229, 1) solid 1px;
+  //border: rgba(229, 229, 229, 1) solid 0.1rem;
+  text-align: center;
+}
+
+.icon_4 {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(0, 186, 173, 1);
+}
+
+.box3_t1 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.75rem;
+  line-height: 160%;
+  text-align: left;
+}
+
+ion-searchbar:active {
+  //background-color: ;
+}
+
+.normalbar {
+  width: 0.38rem;
+  height: 0.38rem;
+  color: rgba(0, 80, 179, 1);
+  background-color: rgba(27, 129, 248, 1);
+  font-size: 0.42rem;
+  line-height: 150%;
+  text-align: center;
+  display: inline-block;
+}
+
+.abnoarml {
+  width: 0.38rem;
+  height: 0.38rem;
+  color: rgba(0, 80, 179, 1);
+  background-color: rgba(212, 48, 48, 1);
+  font-size: 0.42rem;
+  line-height: 150%;
+  text-align: center;
+  display: inline-block;
+}
+
+.range_t1 {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 0.6rem;
+  line-height: 170%;
+  text-align: left;
+}
+
+.range_t2 {
+  color: rgba(27, 129, 248, 1);
+  font-size: 0.64rem;
+  line-height: 170%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.range_t3 {
+  color: rgba(212, 48, 48, 1);
+  font-size: 0.64rem;
+  line-height: 170%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.items1_t1 {
+  color: rgba(73, 160, 222, 1);
+  font-size: 0.75rem;
+  line-height: 130%;
+  text-align: left;
+}
+
+.items1_t2 {
+  color: rgba(212, 48, 48, 1);
+  font-size: 0.75rem;
+  line-height: 130%;
+  text-align: left;
+}
+
+.op {
+  // 一定要将ion-content设置为背景透明，否则看不到摄像头画面
+  --background: none transparent !important;
+  background: none transparent !important;
+  --color: white;
+  --max-height: 10rem;
+}
+
+.search_h1 {
+  height: 11.5rem;
+  overflow: scroll;
+  transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: height 0.5s;
+  /* Safari and Chrome */
+  -o-transition: height 0.5s;
+  /* Opera */
+}
+
+.search_h2 {
+  //flex: 1;
+  //position: absolute;
+  //bottom: 0;
+  height: calc(70vh);
+  transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: height 0.5s;
+  /* Safari and Chrome */
+  -o-transition: height 0.5s;
+  /* Opera */
+}
+
+.info_h1 {
+  height: 11.5rem;
+  overflow: scroll;
+  transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: height 0.5s;
+  /* Safari and Chrome */
+  -o-transition: height 0.5s;
+  /* Opera */
+}
+
+.info_h2 {
+  //margin-top: 20rem;
+  height: calc(80vh);
+  transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: height 0.5s;
+  /* Safari and Chrome */
+  -o-transition: height 0.5s;
+  /* Opera */
+}
+
+
+///////////////////////////////////
+.div1_t1 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.9rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.div1_t2 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.div_t3 {
+  color: rgba(73, 160, 222, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: right;
+}
+
+.div_t4 {
+  color: rgba(212, 48, 48, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: right;
+}
+
+.div2_t1 {
+  color: rgba(167, 174, 185, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.div2_t2 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.87rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.div2_col {
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.div3 {
+  width: 100%;
+  color: rgba(80, 80, 80, 1);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: rgba(243, 243, 243, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.div3_t1 {
+  width: 4.06rem;
+  height: 1.37rem;
+  //padding: 0.5rem 0rem 0.5rem 1rem;
+  color: rgba(93, 114, 128, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.div4_t1 {
+  color: rgba(166, 166, 166, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.div4_t2 {
+  color: rgba(73, 160, 222, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.div5_t2 {
+  color: rgba(93, 114, 128, 1);
+  font-size: 0.76rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.div5_t3 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.touming {
+  --background: none transparent !important;
+  background: none transparent !important;
+}
+
+///
+.select_t1 {
+  color: rgba(128, 128, 128, 1);
+  font-size: 0.88rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.item_t1 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.9rem;
+  line-height: 150%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.item_t2 {
+  color: rgba(83, 105, 120, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.item_t3 {
+  color: rgba(212, 48, 48, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.item_i1 {
+  width: 0.95rem;
+  height: 0.95rem;
+  font-size: 0.95rem;
+  color: rgba(212, 48, 48, 1);
+}
+
+.item_icon1 {
+  width: 0.95rem;
+  height: 0.95rem;
+  font-size: 0.95rem;
+  color: rgba(212, 48, 48, 1);
+}
+
+.item_t4 {
+  color: rgba(73, 160, 222, 1);
+  font-size: 0.75rem;
+  line-height: 150%;
+  text-align: left;
+}
+
+.height1 {
+  height: 11.5rem;
+  overflow: scroll;
+}
+
+.height2 {
+  height: 100%;
+}
+
+.bg1 {
+  // 一定要将ion-content设置为背景透明，否则看不到摄像头画面
+  --background: none transparent !important;
+  background: none transparent !important;
+  --color: white;
+  //ion-icon{
+  //  color: white;
+  //  font-size: 20px;
+  //}
+}

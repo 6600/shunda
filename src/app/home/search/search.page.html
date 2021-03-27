@@ -1,0 +1,39 @@
+
+<div>
+  <ion-searchbar  mode='ios' class="search" showCancelButton="always" (ionCancel)="back()" (ionClear)="clear()" [(ngModel)]="serach_input" (ionChange)="ionchange()"
+  placeholder='搜索地名或者栏杆' cancelButtonText="取消">
+
+  </ion-searchbar>
+</div>
+
+<div>
+
+    <ion-item *ngFor="let item of list" (click)="click(item)">
+      <ion-avatar *ngIf="item.type=='1'" class="icon1">
+        <img src="../../assets/icon_langan.png">
+      </ion-avatar>
+      <ion-avatar *ngIf="item.type=='2'" class="icon1">
+        <img src="../../assets/icon_weizhi.png">
+      </ion-avatar>
+      &nbsp;&nbsp;
+      <ion-label>
+        <span class="t1">{{item.name}} &nbsp;</span>
+        <br>
+        <span class="t2">{{item.name}} &nbsp;</span>
+      </ion-label>
+      <ion-note slot="end">
+      </ion-note>
+    </ion-item>
+
+  <div *ngIf="list.length==0" class="nodatat1">
+    <br>
+    <img src="../../../assets/nodata.png" class="nodatat2">
+    <div>
+      <br>
+      <span>
+            {{'暂无更多数'}}
+          </span>
+    </div>
+  </div>
+
+</div>

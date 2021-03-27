@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="wrapper1">
+      <span class="title1">
+        消息中心
+      </span>
+</div>
+
+
+
+<ion-content>
+  <ion-refresher my-refresher (ionRefresh)="onRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of list" (click)="read(item)">
+      <ion-avatar>
+        <img src="../../assets/icon_chupeng.png">
+      </ion-avatar>
+      <div style="display: flex">
+
+      </div>
+      <ion-label style="padding-left: 0.5rem">
+        <span [ngClass]="{'t1':item.status=='1','t11':item.status=='0'}">
+        {{item.title}}
+        </span>
+        <br>
+        <span class="t2">
+        {{item.content}}
+        </span>
+      </ion-label>
+      <ion-label slot="end" class="t3"><span>{{item.updateDate}}</span><br><span>&nbsp;</span></ion-label>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="list.length==0" class="nodatat1">
+    <br>
+    <img src="../../../assets/nodata.png" class="nodatat2">
+    <div>
+      <br>
+      <span>
+            {{'暂无更多数'}}
+          </span>
+    </div>
+  </div>
+  <ion-infinite-scroll my-infinite (ionInfinite)="onInfinite($event)" [disabled]="!hasMore">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

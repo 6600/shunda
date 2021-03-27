@@ -1,0 +1,93 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+      <span class="title1">
+        详细信息
+      </span>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <span class="div1_t1">
+          {{items2[0].value}}
+        </span>
+        <span class="div_t3" *ngIf="equipmentStatus=='0'">
+          正常
+        </span>
+        <span class="div_t4" *ngIf="equipmentStatus=='1'">
+          异常
+        </span>
+        <br>
+        <span class="div1_t2">
+          {{label1}}
+        </span>
+      </ion-label>
+      <ion-label slot="end" class="div_t3">
+        <ion-button color="success" (click)="toNav()">导航</ion-button>
+      </ion-label>
+    </ion-item>
+
+      <ion-row>
+        <ion-col class="div2_col" *ngFor="let item of items1">
+          <span class="div2_t1">
+                      {{item.label}}
+          </span>
+          <br>
+          <span class="div2_t2">
+                {{item.value}}
+          </span>
+        </ion-col>
+      </ion-row>
+  </ion-list>
+  <div class="div3" align="center">
+    <span class="div3_t1">
+          详细信息
+    </span>
+  </div>
+    <ion-item *ngFor="let item of items2">
+      <ion-label>
+        <span class="div4_t1">
+          {{item.label}}
+        </span>
+        <span class="div4_t2">
+          {{item.value}}
+        </span>
+      </ion-label>
+    </ion-item>
+  <div class="div3" align="center" style="display: flex">
+    <span class="div3_t1">近期事件</span>
+    <div style="display: inline-block;text-align: right;flex: 1;">
+      <span class="div5_t2">查看所有</span>
+    </div>
+  </div>
+    <ion-item *ngFor="let item of items3">
+      <ion-label>
+        <span class="div4_t1">
+          事件：
+        </span>
+        <span class="div4_t2">
+          <span class="div5_t3">
+            栏杆被车牌
+          </span>
+          {{item.label}}
+          <span class="div5_t3">
+                      碰撞
+          </span>
+        </span>
+        <br>
+        <span class="div4_t1">
+          时间：
+        </span>
+        <span class="div4_t2">
+          {{item.value}}
+        </span>
+      </ion-label>
+    </ion-item>
+</ion-content>

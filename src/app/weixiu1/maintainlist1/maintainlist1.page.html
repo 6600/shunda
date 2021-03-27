@@ -1,0 +1,89 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon  icon="chevron-back-outline" color="medium" class="backbt" (click)="toBack()"></ion-icon >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<div class="wrapper1">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+          <span class="title1">
+            更换记录
+          </span>
+      </ion-col>
+      <ion-col style="text-align: right">
+        <span class="header_t4">{{equipname}}</span>&nbsp;&nbsp;
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+
+
+<ion-content>
+  <ion-refresher my-refresher (ionRefresh)="onRefresh($event)" slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+      <div *ngFor="let item of list" (click)="toMaintainRecord(item)">
+        <div class="divider1"></div>
+        <ion-item>
+          <ion-label>
+        <span class="t1">
+        维修人员
+        </span>
+            <br>
+            <span class="t2">
+        </span>
+          </ion-label>
+          <ion-label slot="end" class="t3"><span>
+          {{item.maintainUserName}}
+        </span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+        <span class="t1">
+        更换时间
+        </span>
+            <br>
+            <span class="t2">
+        </span>
+          </ion-label>
+          <ion-label slot="end" class="t3"><span>
+          {{item.maintainStartTime}}
+        </span></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+        <span class="t1">
+        维修原因
+        </span>
+            <br>
+            <span class="t2">
+        </span>
+          </ion-label>
+          <ion-label slot="end" class="t3"><span>
+          {{item.faultReason}}
+        </span></ion-label>
+        </ion-item>
+      </div>
+      <div *ngIf="list.length==0" class="nodatat1">
+        <br>
+        <img src="../../../assets/nodata.png" class="nodatat2">
+        <div>
+          <br>
+          <span>
+            {{nodata_t1}}
+          </span>
+        </div>
+      </div>
+  </ion-list>
+  <ion-infinite-scroll my-infinite (ionInfinite)="onInfinite($event)" [disabled]="!hasMore">
+    <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data…">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

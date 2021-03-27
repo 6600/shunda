@@ -1,0 +1,320 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <img
+        class="icon1"
+        (click)="toPrivacy()"
+        src="../../assets/icon_mine.png"
+      />
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="toScanner()">
+      <img class="icon1" src="../../assets/icon_sao.png" />
+    </ion-buttons>
+
+    <ion-title style="text-align: center">顺达</ion-title>
+  </ion-toolbar>
+  <div class="xiaoxi" (click)="toMessage()" *ngIf="msglist.length>0">
+    <img class="laba" src="../../assets/icon_bofang.png" />
+    <marquee class="xiaoxi1" loop="-1" direction="left" scrolldelay="400">
+      <span *ngFor="let item of msglist"> {{item.content}} </span>
+    </marquee>
+    <img class="laba" src="../../assets/icon_xiangyou.png" />
+  </div>
+  <!--  <marquee loop="-1" direction="up" style="height: 5rem;" scrolldelay="300">-->
+  <!--    <div>-->
+  <!--      <p class="label_txt">我是最后一个</p>-->
+  <!--      <p>让我掉下眼泪的 不止昨夜的酒</p>-->
+  <!--      <p>让我依依不舍的 不止你的温柔</p>-->
+  <!--      <p>余路还要走多久 你攥着我的手</p>-->
+  <!--      <p>让我感到为难的 是挣扎的自由</p>-->
+  <!--      <p>分别总是在九月 回忆是思念的愁</p>-->
+  <!--      <p>深秋嫩绿的垂柳 亲吻着我额头</p>-->
+  <!--      <p>在那座阴雨的小城里 我从未忘记你</p>-->
+  <!--      <p>成都 带不走的 只有你</p>-->
+  <!--      <p>和我在成都的街头走一走</p>-->
+  <!--      <p>直到所有的灯都熄灭了也不停留</p>-->
+  <!--      <p>你会挽着我的衣袖 我会把手揣进裤兜</p>-->
+  <!--      <p>走到玉林路的尽头 坐在(走过)小酒馆的门口</p>-->
+  <!--      <p class="label_txt">我是最后一个</p>-->
+  <!--    </div>-->
+  <!--  </marquee>-->
+</ion-header>
+<!--*ngIf="!(foottype==2&&swpstatus1)"-->
+<div
+  class="fab_container"
+  style="
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(229, 229, 229, 1),
+      -0.2rem 0.2rem 0.2rem 0.2rem rgba(229, 229, 229, 1);
+    z-index: -100;
+  "
+>
+  <div style="height: 50%; padding-top: 0.55rem">
+    <img
+      class="fab_container_icon"
+      (click)="toHome()"
+      src="../../assets/icon_home1.png"
+    />
+  </div>
+  <div
+    style="height: 1px; background-color: rgba(229, 229, 229, 1); width: 100%"
+  ></div>
+  <div style="height: 50%; padding-top: 0.55rem">
+    <img
+      class="fab_container_icon"
+      (click)="toSearch()"
+      src="../../assets/icon_home2.png"
+    />
+  </div>
+</div>
+
+<div style="position: absolute; z-index: -9999; width: 100%">
+  <div id="container" class="map"></div>
+</div>
+
+<div style="z-index: 9999; padding-top: 0rem; bottom: 0" class="bg1">
+  <!--  <div style="height: 5rem;" (click)="click2()" *ngIf="swpstatus1==true||swpstatus1==true">-->
+
+  <!--  </div>-->
+  <div
+    *ngIf="foottype==1"
+    [ngClass]="{'height1':swpstatus==false&&focus==false,'height2':swpstatus==true||focus==true}"
+    style="background-color: white; display: flex; flex-direction: column"
+    (swipeup)="swipeUp($event)"
+    (swipedown)="swipeDown($event)"
+  >
+    <div style="height: 1rem"></div>
+    <ion-toolbar>
+      <ion-searchbar
+        mode="ios"
+        class="never"
+        showCancelButton="never"
+        (ionClear)="clear()"
+        [(ngModel)]="serach_input"
+        (ionChange)="change1()"
+        placeholder="搜索地名或者栏杆"
+        cancelButtonText="搜索"
+        (swipeup)="swipeUp($event)"
+        (swipedown)="swipeDown($event)"
+        (ionBlur)="blurInput()"
+        (ionFocus)="focusInput()"
+      >
+      </ion-searchbar>
+      <ion-buttons slot="end" (click)="ionchange()">
+        <!--        <img class="icon1" src="../../assets/icon_sao.png">-->
+        <span style="color: #49a0de; padding-bottom: 1rem">搜索&nbsp;</span>
+      </ion-buttons>
+    </ion-toolbar>
+    <div
+      style="
+        overflow-x: scroll;
+        overflow-y: scroll;
+        -ms-overflow-x: scroll;
+        -ms-overflow-y: scroll;
+      "
+      [ngClass]="{'search_h1':swpstatus==false&&focus==false,'search_h2':swpstatus==true||focus==true}"
+    >
+      <ion-item *ngFor="let item of list" (click)="click(item)">
+        <ion-avatar *ngIf="item.type=='1'" class="icon1">
+          <img src="../../assets/icon_langan.png" />
+        </ion-avatar>
+        <ion-avatar *ngIf="item.type=='2'" class="icon1">
+          <img src="../../assets/icon_weizhi.png" />
+        </ion-avatar>
+        &nbsp;&nbsp;
+        <ion-label *ngIf="item.type=='1'">
+          <span class="t1">{{item.equipment_name}} &nbsp;</span>
+          <br />
+          <span class="t2">{{item.address_name}} &nbsp;</span>
+        </ion-label>
+        <ion-label *ngIf="item.type=='2'">
+          <span class="t1">{{item.name}} &nbsp;</span>
+          <br />
+          <span class="t2"> &nbsp;</span>
+        </ion-label>
+        <ion-note slot="end"> </ion-note>
+      </ion-item>
+      <div style="min-height: 2rem"></div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="foottype==2"
+    [ngClass]="{'info_h1':swpstatus1==false,'info_h2':swpstatus1==true}"
+  >
+    <div
+      (swipeup)="swipeUp1($event)"
+      (swipedown)="swipeDown1($event)"
+      style="background-color: white"
+    >
+      <ion-list>
+        <div style="display: flex; padding: 0.5rem 1rem 0.5rem 1rem">
+          <ion-label style="width: 14rem">
+            <span class="div1_t1">
+              <div
+                style="
+                  width: 6rem;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  display: inline-block;
+                "
+              >
+                {{items12[0].value}}&nbsp;&nbsp;
+              </div>
+              <img
+                src="../../assets/icon_dinwei hongse.png"
+                class="item_i1"
+                *ngIf="infostatus=='1'"
+              />
+              <img
+                src="../../assets/icon_dinwei.png"
+                class="item_i1"
+                *ngIf="infostatus=='0'"
+              />
+              <span class="div_t3" *ngIf="infostatus=='0'"> 正常 </span>
+              <span class="div_t4" *ngIf="infostatus=='1'"> 异常 </span>
+            </span>
+            <br />
+            <span class="div1_t2"> {{label11}} </span>
+          </ion-label>
+          <ion-label
+            slot="end"
+            class="div_t3"
+            style="flex: 1; text-align: right"
+          >
+            <ion-button style="--background: #00baad" (click)="toNav()"
+              >导航</ion-button
+            >
+          </ion-label>
+        </div>
+
+        <ion-row>
+          <ion-col class="div2_col" *ngFor="let item of items11">
+            <span class="div2_t1"> {{item.label}} </span>
+            <br />
+            <div
+              style="
+                display: flex; /*Flex布局*/
+                display: -webkit-flex; /* Safari */
+                align-items: center; /*指定垂直居中*/
+              "
+            >
+              <img
+                src="{{item.icon}}"
+                style="
+                  width: 1rem;
+                  height: 1rem;
+                  margin-top: auto;
+                  margin-bottom: auto;
+                "
+              />
+              <span class="div2_t2">
+                &nbsp;{{item.value}}
+                <span *ngIf="item.type==1"> 次 </span>
+                <span *ngIf="item.type==2"> km </span>
+              </span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+
+      <div class="div3" align="center">
+        <span class="div3_t1"> 详细信息 </span>
+      </div>
+      <ion-item *ngFor="let item of items12">
+        <ion-label>
+          <span class="div4_t1"> {{item.label}} </span>
+          <span class="div4_t2"> {{item.value}} </span>
+        </ion-label>
+      </ion-item>
+    </div>
+
+    <div class="div3" align="center" style="display: flex">
+      <span class="div3_t1">近期事件</span>
+      <div style="display: inline-block; text-align: right; flex: 1">
+        <span class="div5_t2">查看所有</span>
+      </div>
+    </div>
+    <div
+      style="
+        background-color: white;
+        overflow-x: scroll;
+        overflow-y: scroll;
+        -ms-overflow-x: scroll;
+        -ms-overflow-y: scroll;
+        min-height: 20rem;
+      "
+    >
+      <ion-item *ngFor="let item of items13">
+        <ion-label>
+          <span class="div4_t1"> 事件： </span>
+          <span class="div4_t2">
+            <span class="div5_t3">
+              <!--            栏杆被车牌-->
+              {{item.label}}
+            </span>
+          </span>
+          <br />
+          <span class="div4_t1"> 时间： </span>
+          <span class="div4_t2"> {{item.value}} </span>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+  <div *ngIf="foottype==0" class="height1">
+    <div class="box1">
+      <span class="box1_t1">{{label1}}</span>
+      &nbsp;
+      <span class="box1_t2"></span>
+      <br />
+      <span class="box1_t3">{{label2}}</span>
+      &nbsp;&nbsp;
+      <span class="box1_t4"></span>
+    </div>
+    <div class="box2">
+      <!--      <input type="range" value="50" min="0" max="100">-->
+      <ion-range
+        min="0"
+        max="100"
+        value="30"
+        pin="false"
+        disabled="false"
+        [ngModel]="range_value"
+        style="
+          --bar-background: #d43030;
+          --knob-size: 0;
+          --bar-height: 0.2rem;
+          pointer-events: none;
+          --bar-background-active: #1b81f8;
+          margin-top: -0.3rem;
+        "
+      ></ion-range>
+      <ion-row style="margin-top: -2rem; padding: 0 0.6rem 0 0.6rem">
+        <ion-col style="text-align: left">
+          <div class="normalbar"></div>
+          <span class="range_t1"> &nbsp;正常 </span>
+          <span class="range_t2"> &nbsp;{{normal_rate}}% </span>
+        </ion-col>
+        <ion-col style="text-align: right">
+          <span class="range_t3"> {{exp_rate}}%&nbsp; </span>
+          <span class="range_t1"> 异常&nbsp; </span>
+          <div class="abnoarml"></div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div style="z-index: 9999; background-color: white; min-height: 5rem">
+      <ion-row style="padding-left: 1rem">
+        <ion-col *ngFor="let item of items1" (click)="toMyDevices(item)">
+          <ion-img class="icon_4" src="{{item.icon}}"> </ion-img>
+          <span class="box3_t1">&nbsp;{{item.label1}}</span>
+          <br />
+          <div class="icon_4"></div>
+          <span class="box3_t1" [ngClass]="item.clazz1"
+            >&nbsp;{{item.number1}}</span
+          >
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</div>

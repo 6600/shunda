@@ -1,0 +1,193 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-icon
+        icon="chevron-back-outline"
+        color="medium"
+        class="backbt"
+        (click)="toBack()"
+      ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+  <div class="wrapper1">
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <span class="title1"> 维修中 </span>
+        </ion-col>
+        <ion-col style="text-align: right"> </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="divider1"></div>
+  <ion-list>
+    <ion-item style="--padding-start: 0">
+      <ion-label class="item_t1"> 设备名称 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{devName}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 设备位置 </ion-label>
+      <ion-note slot="end" class="item_t2" (click)="toLocate()">
+        <span *ngIf="location!=''" class="t4">{{this.location}}</span>
+        <span *ngIf="location==''" class="t2">点击定位</span>
+        <span>&nbsp;</span>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <div class="divider1"></div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label class="item_t1"> 维修人员 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{userInfo.loginName}} </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 开始修理时间 </ion-label>
+      <ion-note slot="end" class="item_t2"> {{workdate}} </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <div class="divider1"></div>
+
+  <!--  <ion-list>-->
+  <!--    <ion-item>-->
+  <!--      <ion-label class="item_t1">-->
+  <!--        故障原因-->
+  <!--      </ion-label>-->
+  <!--      <ion-note slot="end" class="item_t2">-->
+  <!--        AAA-->
+  <!--      </ion-note>-->
+  <!--    </ion-item>-->
+  <!--      <ion-item>-->
+  <!--      <ion-label class="item_t1">-->
+  <!--        需要配件-->
+  <!--      </ion-label>-->
+  <!--      <ion-note slot="end" class="item_t2">-->
+  <!--        AAA-->
+  <!--      </ion-note>-->
+  <!--    </ion-item>-->
+  <!--    <ion-item>-->
+  <!--      <ion-label class="item_t1">-->
+  <!--        故障图片-->
+  <!--      </ion-label>-->
+  <!--      <ion-note slot="end" class="item_img_t1">-->
+  <!--        图片大小控制在2M以内-->
+  <!--      </ion-note>-->
+  <!--    </ion-item>-->
+  <!--    <div>-->
+  <!--      <ion-row align="center">-->
+  <!--        <ion-col>-->
+  <!--          <img class="image1" src="../../assets/icon_langan1.png">-->
+  <!--        </ion-col>-->
+  <!--        <ion-col>-->
+  <!--          <img class="image1" src="../../assets/icon_langan1.png">-->
+  <!--        </ion-col>-->
+  <!--        <ion-col>-->
+  <!--          <img class="image1" src="../../assets/icon_langan1.png">-->
+  <!--        </ion-col>-->
+  <!--        <ion-col>-->
+  <!--          <img class="image1" src="../../assets/icon_langan1.png">-->
+  <!--        </ion-col>-->
+  <!--      </ion-row>-->
+  <!--    </div>-->
+  <!--  </ion-list>-->
+
+  <ion-list>
+    <ion-item>
+      <ion-label class="item_t1">
+        <span *ngIf="sel_check=='1'"> 更换原因 </span>
+        <span *ngIf="sel_check=='0'"> 维修原因 </span>
+      </ion-label>
+      <ion-note
+        slot="end"
+        class="item_t2"
+        (click)="togetAllDamageReason()"
+        *ngIf="sel_check=='1'"
+      >
+        <ion-select
+          interface="popover"
+          style="
+            min-width: 10rem;
+            margin-right: 0.1rem;
+            margin-left: auto;
+            text-align: right;
+          "
+          class="select_t1"
+          [(ngModel)]="sel_reason"
+          placeholder="请选择更换原因"
+        >
+          <ion-select-option *ngFor="let item of reasons" value="{{item.id}}"
+            >{{item.reason}}&nbsp;</ion-select-option
+          >
+        </ion-select>
+      </ion-note>
+      <ion-note
+        slot="end"
+        class="item_t2"
+        (click)="togetAllDamageReason()"
+        *ngIf="sel_check=='0'"
+      >
+        <ion-select
+          interface="popover"
+          style="
+            min-width: 10rem;
+            margin-right: 0.1rem;
+            margin-left: auto;
+            text-align: right;
+          "
+          class="select_t1"
+          [(ngModel)]="sel_reason"
+          placeholder="请选择维修原因"
+        >
+          <ion-select-option *ngFor="let item of reasons" value="{{item.id}}"
+            >{{item.reason}}&nbsp;</ion-select-option
+          >
+        </ion-select>
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label class="item_t1"> 是否需要更换设备 </ion-label>
+      <ion-note slot="end" class="item_t2" (click)="togetAllDamageReason()">
+        <ion-select
+          interface="popover"
+          style="
+            min-width: 10rem;
+            margin-right: 0.1rem;
+            margin-left: auto;
+            text-align: right;
+          "
+          class="select_t1"
+          [(ngModel)]="sel_check"
+        >
+          <ion-select-option *ngFor="let item of checks" value="{{item.id}}"
+            >{{item.label}}&nbsp;</ion-select-option
+          >
+        </ion-select>
+      </ion-note>
+    </ion-item>
+    <ion-item *ngIf="sel_check=='1'">
+      <ion-label class="item_t1"> 请扫码 </ion-label>
+      <div slot="end" class="t3" style="margin-right: -0.5rem">
+        <span>{{newDevID}}</span>
+      </div>
+      <ion-icon slot="end" name="scan-outline" (click)="toNewScan()"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label>备注：</ion-label>
+      <ion-textarea
+        placeholder="请输入您的备注"
+        maxlength="300"
+        style="height: 8rem"
+        [(ngModel)]="note1"
+      ></ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" (click)="toCommit()">开始维修</ion-button>
+  </ion-toolbar>
+</ion-footer>
