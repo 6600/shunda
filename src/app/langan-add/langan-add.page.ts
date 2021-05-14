@@ -105,7 +105,9 @@ export class LanganAddPage implements OnInit {
             // this.webApi.activateEquipment(this.devID,lng)
         })
     }
-
+    todel () {
+        alert(this.devID)
+    }
     toNext() {
         console.log('time:' + this.workdate)
         this.workdate = moment(this.workdate).format('YYYY-MM-DD')
