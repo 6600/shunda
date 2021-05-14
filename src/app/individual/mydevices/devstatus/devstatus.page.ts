@@ -90,7 +90,8 @@ export class DevstatusPage implements OnInit {
           },
         ];
       } else {
-        msg = "删除失败";
+        body["hint"] = "删除失败";
+        msg = data.msg
         bts = [
           {
             text: "返回",
