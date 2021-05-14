@@ -207,7 +207,11 @@ export class WebApi {
         body['equipmentId']=equipmentId
         return this.post('/a/member/selfInspection',body);
     }
-
+    public deleteInspection(equipmentId){
+        let body={}
+        body['equipmentId']=equipmentId
+        return this.post('/a/member/delEquipment',body);
+    }
     public getAllDamageReason(){
         let body={}
         return this.post('/a/equipment/getAllDamageReason',body);
