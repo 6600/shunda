@@ -68,7 +68,45 @@ export class DevstatusPage implements OnInit {
       },
     });
   }
-
+  deleteItem () {
+    this.webapi.deleteInspection(this.equipment_id).then((data) => {
+      let code = data.code;
+      let bts;
+      let msg;
+      let body = {};
+      body["hint"] = "提示";
+      if (code == "1") {
+        msg = "删除成功";
+        bts = [
+          {
+            text: "返回",
+            handler: () => {},
+          },
+          {
+            text: "确定",
+            handler: () => {
+              this.router.navigate(["home"]);
+            },
+          },
+        ];
+      } else {
+        msg = "删除失败";
+        bts = [
+          {
+            text: "返回",
+            handler: () => {},
+          },
+          {
+            text: "确定",
+            handler: () => {},
+          },
+        ];
+      }
+      body["msg"] = msg;
+      body["bts"] = bts;
+      this.myalert.show(body);
+    });
+  }
   toZijian() {
     this.webapi.selfInspection(this.equipment_id).then((data) => {
       let code = data.code;

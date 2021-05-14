@@ -15,7 +15,7 @@
   </ion-toolbar>
   <div class="xiaoxi" (click)="toMessage()" *ngIf="msglist.length>0">
     <img class="laba" src="../../assets/icon_bofang.png" />
-    <marquee class="xiaoxi1" loop="-1" direction="left" scrolldelay="400">
+    <marquee class="xiaoxi1" loop="-1" direction="up" scrolldelay="400">
       <span *ngFor="let item of msglist"> {{item.content}} </span>
     </marquee>
     <img class="laba" src="../../assets/icon_xiangyou.png" />
@@ -45,7 +45,6 @@
   style="
     box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(229, 229, 229, 1),
       -0.2rem 0.2rem 0.2rem 0.2rem rgba(229, 229, 229, 1);
-    z-index: -100;
   "
 >
   <div style="height: 50%; padding-top: 0.55rem">
