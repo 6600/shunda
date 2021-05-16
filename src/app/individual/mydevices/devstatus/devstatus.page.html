@@ -87,6 +87,6 @@
   >
 </ion-footer>
 
-<ion-footer style="background-color: white">
+<ion-footer style="background-color: white" *ngIf="userinfo.type==1">
   <ion-button expand="full" (click)="deleteItem()">删除设备</ion-button>
 </ion-footer>
